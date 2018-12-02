@@ -20,7 +20,7 @@ const ComponentRightInfo = props => (
     </div>
 );
 
-const Component = props => (
+const Processor = props => (
     <div className="container">
         <div className="row component_block">
             <ComponentLeftInfo name={props.component.series.name + '-' + props.component.model}
@@ -30,9 +30,38 @@ const Component = props => (
                                 benchmark={props.component.benchmark}/>
         </div>
     </div>
+
 );
 
+const VideoCard = props => (
+    <div className="container">
+        <div className="row component_block">
+            <ComponentLeftInfo name={props.component.model}
+                               id={props.component.id}
+                               clock={props.component.clock}/>
+            <ComponentRightInfo price={props.component.price}
+                                benchmark={props.component.benchmark}/>
+        </div>
+    </div>
+
+);
+
+// const Component = props => {
+//
+//     return <div className="container">
+//         <element/>
+//     </div>
+// };
+
 const Components = props => {
+    let Component;
+    switch (props.components.entityName) {
+        case 'processor':
+            Component = Processor;
+        case 'videoCard':
+            Component = VideoCard;
+    }
+
     const componentsBlock = [];
     props.components.forEach((component) => {
         componentsBlock.push(
@@ -100,9 +129,19 @@ const Main = props => (
 $.ajax({
     url: "http://localhost:8080/processors",
 }).then(function (processors) {
+    processors.entityName = "processor";
     ReactDOM.render(<Main components={processors}/>, document.getElementById('root'));
 });
 
+$("#toVideoCard").onclick = function (){
+    console.log(123);
+    $.ajax({
+        url: "http://localhost:8080/videoCards",
+    }).then(function (processors) {
+        processors.entityName = "videoCard";
+        ReactDOM.render(<Main components={processors}/>, document.getElementById('root'));
+    });
+};
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
