@@ -1,28 +1,23 @@
 import React, {Component} from 'react';
 import Filter from "../components/Filter";
-import SortingBlock from "./SortingBlock";
-import ComponentsBlock from "./ComponetsBlock";
-import NavBar from "../components/NavBar";
+import SortingBlock from "../components/SortingBlock";
+import VariableComponentsBlock from './VariableComponentsBlock'
+import NavigationBar from "./NavigationBar";
 import {Header} from "../components/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/style.css'
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {components: [], entityName: ''};
-    }
-
     render() {
         return (
             <div>
                 <Header/>
-                <NavBar/>
+                <NavigationBar/>
                 <main>
-                    <SortingBlock count={this.state.components.length}/>
+                    <SortingBlock count={10}/>
                     <div className="container">
                         <div className="row">
-                            <ComponentsBlock components={this.props.components}>Test</ComponentsBlock>
+                            <VariableComponentsBlock/>
                             <Filter/>
                         </div>
                     </div>

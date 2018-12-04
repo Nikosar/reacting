@@ -1,18 +1,16 @@
 import React from "react";
-import Processor from "../components/Processor";
-import VideoCard from "../components/VideoCard";
+import Processor from "./Processor";
+import VideoCard from "./VideoCard";
 
 const ComponentsBlock = props => {
     let Component;
     switch (props.entityName) {
-        case 'processor':
+        case 'processors':
             Component = Processor;
             break;
-        case 'videoCard':
+        case 'videoCards':
             Component = VideoCard;
             break;
-        default:
-            Component = Processor;
     }
 
     const componentsBlock = [];
