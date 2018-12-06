@@ -9,7 +9,8 @@ function f(state = {}, action) {
         case RECEIVE_COMPONENTS:
             return Object.assign({}, state, {
                 components: action.components,
-                entityName: action.componentType
+                entityName: action.componentType,
+                count: action.components.length
             });
         default:
             return state;

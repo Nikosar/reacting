@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Filter from "../components/Filter";
-import SortingBlock from "../components/SortingBlock";
+import SortingBlock from "./SortingBlock";
 import VariableComponentsBlock from './VariableComponentsBlock'
 import NavigationBar from "./NavigationBar";
 import {Header} from "../components/Header";
