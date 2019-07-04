@@ -1,11 +1,11 @@
 import React from "react";
 
-const SortingBlock = props => (
+const SortingBlock = ({count, categoryName}) => (
     <div className="container">
         <div className="row align-items-center">
-            <div className="col-lg-2"><h1>{"Процессоры"}</h1></div>
+            <div className="col-lg-2"><h1>{categoryName}</h1></div>
             <div className="col-lg-1"/>
-            <div className="col-lg-2"><h4>Найдено: {props.count}</h4></div>
+            <div className="col-lg-2"><h4>Найдено: {count}</h4></div>
         </div>
         <div className="container">
             <div className="row align-items-lg-center">

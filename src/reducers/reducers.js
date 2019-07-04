@@ -10,6 +10,7 @@ function f(state = {}, action) {
             return Object.assign({}, state, {
                 components: action.components,
                 entityName: action.componentType,
+                categoryName: action.categoryName,
                 count: action.components.length
             });
         default:

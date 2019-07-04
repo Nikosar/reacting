@@ -2,9 +2,9 @@ import React from "react";
 import Processor from "./Processor";
 import VideoCard from "./VideoCard";
 
-const ComponentsBlock = props => {
+const ComponentsBlock = ({components, entityName}) => {
     let Component;
-    switch (props.entityName) {
+    switch (entityName) {
         case 'processors':
             Component = Processor;
             break;
@@ -14,8 +14,8 @@ const ComponentsBlock = props => {
     }
 
     const componentsBlock = [];
-    if (props.components) {
-        props.components.forEach((component) => {
+    if (components) {
+        components.forEach((component) => {
             componentsBlock.push(
                 <Component key={component.id} component={component}/>
             )

@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import NavBar from "../components/NavBar";
 
 const mapDispatchToProps = dispatch => ({
-    switchCategory: (componentType => dispatch(fetchComponents(componentType)))
+    switchCategory: ((request, categoryName) => dispatch(fetchComponents(request, categoryName)))
 });
 
 export default connect(null, mapDispatchToProps)(NavBar);

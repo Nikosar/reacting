@@ -9,20 +9,21 @@ export function requestComponents(componentType) {
 
 export const RECEIVE_COMPONENTS = 'RECEIVE_COMPONENTS';
 
-export function receiveComponents(componentType, json) {
+export function receiveComponents(componentType, categoryName, json) {
     return {
         type: RECEIVE_COMPONENTS,
         componentType,
+        categoryName,
         components: json
     }
 }
 
-export function fetchComponents(componentType) {
+export function fetchComponents(componentType, categoryName) {
     return function (dispatch) {
         dispatch(requestComponents(componentType));
 
         return fetch(`http://localhost:8080/${componentType}`)
             .then(response => response.json(), error => console.log('error', error))
-            .then(json => dispatch(receiveComponents(componentType, json)));
+            .then(json => dispatch(receiveComponents(componentType, categoryName, json)));
     }
 }

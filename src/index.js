@@ -11,7 +11,7 @@ import {fetchComponents} from "./actions";
 
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
-// store.dispatch(fetchComponents('processors')).then(() => console.log(store.getState()));
+store.dispatch(fetchComponents('processors')).then(() => console.log(store.getState()));
 
 ReactDOM.render(<Provider store={store}>
     <App/>
