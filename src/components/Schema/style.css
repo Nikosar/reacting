@@ -1,0 +1,36 @@
+g:hover rect, g:hover polygon {
+    fill: #ffc255;
+}
+
+.unfocused {
+    fill: #b3b3b3;
+}
+
+.cls-1 {
+    fill: #e2e2e2;
+}
+
+.cls-1, .cls-2, .cls-4, .cls-6, .cls-7 {
+    stroke: #000;
+    stroke-miterlimit: 10;
+}
+
+.cls-2, .cls-6 {
+    fill: none;
+}
+
+.cls-3 {
+    fill: #ffc255;
+}
+
+.cls-4, .cls-5, .cls-3 {
+    fill: #b3b3b3;
+}
+
+.cls-6 {
+    stroke-width: 2px;
+}
+
+.cls-7 {
+    fill: #afafaf;
+}

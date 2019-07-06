@@ -1,4 +1,4 @@
-export const REQUEST_COMPONENTS = 'REQUEST_COMPONENTS';
+import {RECEIVE_COMPONENTS, REQUEST_COMPONENTS} from "./actionTypes";
 
 export function requestComponents(componentType) {
     return {
@@ -7,7 +7,6 @@ export function requestComponents(componentType) {
     }
 }
 
-export const RECEIVE_COMPONENTS = 'RECEIVE_COMPONENTS';
 
 export function receiveComponents(componentType, categoryName, json) {
     return {

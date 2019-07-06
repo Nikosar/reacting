@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import $ from 'jquery';
 import {Provider} from 'react-redux';
-import App from "./containers/App";
-import {createStore, applyMiddleware} from "redux";
+import {applyMiddleware, createStore} from "redux";
 import thunkMiddleware from 'redux-thunk'
-import rootReducer from "./reducers/reducers";
-import {fetchComponents} from "./actions";
+import rootReducer from "./services/reducers";
+import App from "./components/App";
 
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
-store.dispatch(fetchComponents('processors')).then(() => console.log(store.getState()));
+// store.dispatch(fetchComponents('processors')).then(() => console.log(store.getState()));
 
 ReactDOM.render(<Provider store={store}>
     <App/>

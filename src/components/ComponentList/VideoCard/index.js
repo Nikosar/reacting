@@ -1,4 +1,5 @@
 import React from "react";
+import AddComponentButton from "../AddComponentButton";
 
 const VideoCard = props => (
     <div className="container">
@@ -25,7 +26,7 @@ const ComponentRightInfo = props => (
         <h4>{props.price}</h4>
         <h4>{props.benchmark}</h4>
         <div className="row">
-            <button className="submit_button" type="submit">Использовать для сборки</button>
+            <AddComponentButton/>
         </div>
     </div>
 );

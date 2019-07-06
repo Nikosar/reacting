@@ -1,4 +1,5 @@
 import React from "react";
+import AddComponentButton from "../AddComponentButton";
 
 const Processor = ({component}) => {
     return <div className="container">
@@ -11,7 +12,7 @@ const Processor = ({component}) => {
                                cores={component.cores}
                                ekatalogLink={component.ekatalogLink}
             />
-            <ComponentRightInfo price={component.prices.length !== 0 ? component.prices[0].minPrice : ''}
+            <ComponentRightInfo component={component} price={component.prices.length !== 0 ? component.prices[0].minPrice : ''}
                                 benchmark={component.passmark !== null ? component.passmark : ''}
                                 benchmarkName={component.passmark !== null ? "Passmark" : ''}/>
         </div>
@@ -26,13 +27,13 @@ const ComponentLeftInfo = ({name, id, clock, socket, turbo, cores, ekatalogLink}
     </div>
 );
 
-const ComponentRightInfo = ({price, benchmarkName, benchmark}) => (
+const ComponentRightInfo = ({component, price, benchmarkName, benchmark}) => (
     <div className="col-lg-6">
         <h5>{price + (price ? ' р.' : '')}</h5>
         <h5>{benchmarkName + (benchmark ? ': ' : '') + benchmark}</h5>
         <h5>{(price && benchmark) ? benchmarkName + '/цена: ' + (benchmark/price).toFixed(2) : ''}</h5>
         <div className="row">
-            <button className="submit_button" type="submit">Использовать для сборки</button>
+            <AddComponentButton component={component}/>
         </div>
     </div>
 );
