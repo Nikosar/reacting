@@ -12,9 +12,8 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 components: action.components,
-                entityName: action.componentType,
-                categoryName: action.categoryName,
-                count: action.components.length
+                componentType: action.componentType,
+                // count: action.components.length
             };
         default:
             return state;

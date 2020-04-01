@@ -1,6 +1,9 @@
 g:hover rect, g:hover polygon {
     fill: #ffc255;
 }
+#motherboard:hover {
+     fill: #ffc255;
+ }
 
 .unfocused {
     fill: #b3b3b3;
@@ -33,4 +36,19 @@ g:hover rect, g:hover polygon {
 
 .cls-7 {
     fill: #afafaf;
+}
+
+.cls-8 {
+    font-size: 18.67px;
+    font-family: MyriadPro-Regular, Myriad Pro;
+}
+
+.cls-10 {
+    font-size: 14px;
+    text-anchor: middle;
+    font-family: MyriadPro-Regular, Myriad Pro;
+}
+
+.cls-9 {
+    letter-spacing: 0.01em;
 }

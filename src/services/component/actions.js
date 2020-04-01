@@ -1,4 +1,5 @@
 import {RECEIVE_COMPONENTS, REQUEST_COMPONENTS} from "./actionTypes";
+import {CONFIGURATOR_API} from "../util";
 
 export function requestComponents(componentType) {
     return {
@@ -8,21 +9,24 @@ export function requestComponents(componentType) {
 }
 
 
-export function receiveComponents(componentType, categoryName, json) {
+export function receiveComponents(componentType, json) {
     return {
         type: RECEIVE_COMPONENTS,
         componentType,
-        categoryName,
         components: json
     }
 }
 
-export function fetchComponents(componentType, categoryName) {
+export function fetchComponents(componentType, filter) {
     return function (dispatch) {
         dispatch(requestComponents(componentType));
 
-        return fetch(`http://localhost:8080/${componentType}`)
+        let url = `${CONFIGURATOR_API}/${componentType}?page=0`;
+        if (filter) {
+            url += `&filter=${filter}`;
+        }
+        return fetch(url)
             .then(response => response.json(), error => console.log('error', error))
-            .then(json => dispatch(receiveComponents(componentType, categoryName, json)));
+            .then(json => dispatch(receiveComponents(componentType, json)));
     }
 }
