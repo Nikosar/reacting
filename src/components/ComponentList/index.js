@@ -12,20 +12,16 @@ const componentClasses = {
     [HDD]: UniComponent, [SSD]: UniComponent, [MOTHERBOARD]: UniComponent
 };
 
-const ComponentList = ({components, componentType, fetchComponents, addComponentToConfiguration, showConfiguration}) => {
+const ComponentList = ({components, componentType, fetchComponents, addComponentToConfiguration}) => {
     let Component = componentClasses[componentType];
-
-    const onClick = (component) => {
-        addComponentToConfiguration(component, componentType);
-        showConfiguration();
-    };
 
     const componentsList = [];
 
     if (components) {
         components.forEach((component) => {
             componentsList.push(
-                <Component key={component.id} component={component} onClick={() => onClick(component)}/>
+                <Component key={component.id} component={component}
+                           onClick={() => addComponentToConfiguration(component, componentType)}/>
             )
         });
     }

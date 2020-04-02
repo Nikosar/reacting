@@ -1,5 +1,6 @@
 import {RECEIVE_COMPONENTS, REQUEST_COMPONENTS} from "./actionTypes";
 import {CONFIGURATOR_API} from "../util";
+import {showComponentList} from "../content/actions";
 
 export function requestComponents(componentType) {
     return {
@@ -27,6 +28,7 @@ export function fetchComponents(componentType, filter) {
         }
         return fetch(url)
             .then(response => response.json(), error => console.log('error', error))
-            .then(json => dispatch(receiveComponents(componentType, json)));
+            .then(json => dispatch(receiveComponents(componentType, json)))
+            .then(() => dispatch(showComponentList()));
     }
 }

@@ -32,7 +32,7 @@ export default function (state = initialState, action) {
             componentList.splice(i, 1);
             return {
                 ...state,
-                [action.componentType + 's']: componentList
+                [action.componentType]: componentList
             };
 
         case RECEIVE_CONFIGURATION:

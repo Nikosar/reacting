@@ -5,14 +5,19 @@ import {
 } from "./actionTypes";
 import {CONFIGURATOR_API} from "../util";
 import {CONFIGURATION} from "../../components/constants";
+import {showConfiguration} from "../content/actions";
 
 export function addComponentToConfiguration(component, componentType) {
-    return {
-        type: ADD_COMPONENT_TO_CONFIGURATION,
-        component,
-        componentType
+    return (dispatch) => {
+        dispatch({
+            type: ADD_COMPONENT_TO_CONFIGURATION,
+            component,
+            componentType
+        });
+        dispatch(showConfiguration());
     }
 }
+
 
 export function removeComponent(id, componentType) {
     return {
@@ -53,6 +58,7 @@ export function fetchConfiguration(id) {
         return fetch(`${configuration_url}/${id}`)
             .then(response => response.json())
             .then(json => dispatch(receiveConfiguration(json)))
+            .then(() => dispatch(showConfiguration()))
             .catch(err => console.log(err));
     }
 }

@@ -13,11 +13,11 @@ const Configuration = ({configuration, removeComponent, saveConfiguration, delet
     const configurationComponents = () => {
         return Object.entries(configuration)
             .filter(([k]) => componentKeys.includes(k))
-            .map(([, components]) => components.map(component => {
+            .map(([componentType, components]) => components.map(component => {
                 return <li key={component.id}>
                     <ComponentProperties component={component}/>
                     <button className="submit_button" type="button"
-                            onClick={() => removeComponent()}>Удалить</button>
+                            onClick={() => removeComponent(component.id, componentType)}>Удалить</button>
                 </li>;
             }))
     };
