@@ -10,11 +10,9 @@ export const Schema = ({fetchComponents, showComponentList}) => {
     return (
         <svg id="board" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 401 453" width="100%" height="600px">
             <rect id="motherboard" className="cls-1" x="0.5" y="0.5" width="400" height="452" onClick={() => {
-                showComponentList();
                 fetchComponents(MOTHERBOARD);
             }}/>
             <g id="processor" onClick={() => {
-                showComponentList();
                 fetchComponents(PROCESSOR);
             }}>
                 <rect className="cls-2" x="65.5" y="92.5" width="92.5" height="93.8" rx="8.31" ry="8.31"/>
@@ -22,7 +20,6 @@ export const Schema = ({fetchComponents, showComponentList}) => {
                 <text className="cls-8" transform="translate(75.25 142.58)">I7-9900X</text>
             </g>
             <g id="memory" onClick={() => {
-                showComponentList();
                 fetchComponents(RAM);
             }}>
                 <rect className="cls-4" x="240.5" y="51.5" width="16" height="169"/>
@@ -35,7 +32,6 @@ export const Schema = ({fetchComponents, showComponentList}) => {
                 <line className="cls-2" x1="323.5" y1="59.5" x2="323.5" y2="211.5"/>
             </g>
             <g id="videocard" onClick={() => {
-                showComponentList();
                 fetchComponents(VIDEO_CARD)
             }}>
                 <text className="cls-8" transform="translate(69.25 244.58)">RTX 2080ti</text>
@@ -78,7 +74,6 @@ export const Schema = ({fetchComponents, showComponentList}) => {
                 </g>
             </g>
             <g id="sata" onClick={() => {
-                showComponentList();
                 fetchComponents(SSD)
             }}>
 

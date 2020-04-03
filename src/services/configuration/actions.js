@@ -12,7 +12,7 @@ export function addComponentToConfiguration(component, componentType) {
         dispatch({
             type: ADD_COMPONENT_TO_CONFIGURATION,
             component,
-            componentType
+            componentListType: componentType + 's'
         });
         dispatch(showConfiguration());
     }

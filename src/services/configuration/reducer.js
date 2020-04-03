@@ -1,11 +1,13 @@
 import {
-    ADD_COMPONENT_TO_CONFIGURATION, CLEAR_CONFIGURATION,
+    ADD_COMPONENT_TO_CONFIGURATION,
+    CLEAR_CONFIGURATION,
     RECEIVE_CONFIGURATION,
     REMOVE_COMPONENT_FROM_CONFIGURATION
 } from "./actionTypes";
-import {MOTHERBOARDS, PROCESSORS, RAMS, SSDS, VIDEO_CARDS, HDDS} from "../../components/constants";
+import {HDDS, MOTHERBOARDS, PROCESSORS, RAMS, SSDS, VIDEO_CARDS} from "../../components/constants";
 
 const initialState = {
+    id: 0,
     [MOTHERBOARDS]: [],
     [PROCESSORS]: [],
     [VIDEO_CARDS]: [],
@@ -15,38 +17,21 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-    let componentList;
-
     switch (action.type) {
         case ADD_COMPONENT_TO_CONFIGURATION:
-            componentList = state[action.componentType + 's'];
-            componentList.push(action.component);
-
             return {
                 ...state,
-                [action.componentType + 's']: componentList
+                [action.componentListType]: state[action.componentListType].concat(action.component)
             };
         case REMOVE_COMPONENT_FROM_CONFIGURATION:
-            componentList = state[action.componentType];
-            const i = componentList.findIndex((e) => e.id === action.id);
-            componentList.splice(i, 1);
             return {
                 ...state,
-                [action.componentType]: componentList
+                [action.componentType]: state[action.componentType].filter(e => e.id !== action.id)
             };
 
         case RECEIVE_CONFIGURATION:
-            // let configuration = {};
-            // for (let key of componentKeys) {
-            //     componentList = [];
-            //     action.configuration[key] && Object.values(action.configuration[key])
-            //         .forEach(component => componentList.push(component));
-            //     configuration[key] = componentList;
-            // }
-            const assign = Object.assign({}, action.configuration);
-            return assign;
+            return Object.assign({}, action.configuration);
         case CLEAR_CONFIGURATION:
-            for (let key in initialState) initialState[key] = [];
             return Object.assign({}, initialState);
         default:
             return state;

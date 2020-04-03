@@ -25,7 +25,7 @@ const Component = ({component, onClick}) => {
             <div className="col-3 col-lg-4 col-md-3 col-sm-12">
                 <h5>{price && price.minPrice + " р."}</h5>
                 <button className="submit_button" type="button"
-                        onClick={() => onClick()}>"Использовать для сборки"
+                        onClick={() => onClick()}>Использовать для сборки
                 </button>
             </div>
         </div>
