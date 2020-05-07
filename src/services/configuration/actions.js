@@ -3,8 +3,8 @@ import {
     RECEIVE_CONFIGURATION,
     REMOVE_COMPONENT_FROM_CONFIGURATION
 } from "./actionTypes";
-import {CONFIGURATOR_API} from "../util";
-import {CONFIGURATION} from "../../components/constants";
+import {CONFIGURATOR_API} from "../server";
+import {CONFIGURATIONS} from "../../components/constants";
 import {showConfiguration} from "../content/actions";
 
 export function addComponentToConfiguration(component, componentType) {
@@ -12,14 +12,14 @@ export function addComponentToConfiguration(component, componentType) {
         dispatch({
             type: ADD_COMPONENT_TO_CONFIGURATION,
             component,
-            componentListType: componentType + 's'
+            componentType: componentType
         });
         dispatch(showConfiguration());
     }
 }
 
 
-export function removeComponent(id, componentType) {
+export function removeComponentFromConfiguration(id, componentType) {
     return {
         type: REMOVE_COMPONENT_FROM_CONFIGURATION,
         id,
@@ -27,7 +27,7 @@ export function removeComponent(id, componentType) {
     }
 }
 
-const configuration_url = `${CONFIGURATOR_API}/${CONFIGURATION}`;
+const configuration_url = `${CONFIGURATOR_API}/${CONFIGURATIONS}`;
 
 export function saveConfiguration(configuration) {
 

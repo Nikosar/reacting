@@ -1,5 +1,5 @@
 import {RECEIVE_COMPONENTS, REQUEST_COMPONENTS} from "./actionTypes";
-import {CONFIGURATOR_API} from "../util";
+import {CONFIGURATOR_API} from "../server";
 import {showComponentList} from "../content/actions";
 
 export function requestComponents(componentType) {
@@ -13,8 +13,8 @@ export function requestComponents(componentType) {
 export function receiveComponents(componentType, json) {
     return {
         type: RECEIVE_COMPONENTS,
-        componentType,
-        components: json
+        componentType: componentType,
+        content: json
     }
 }
 

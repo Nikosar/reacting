@@ -2,12 +2,12 @@ import React from "react";
 import {addComponentToConfiguration} from "../../../services/configuration/actions";
 import {showConfiguration} from "../../../services/content/actions";
 import {connect} from "react-redux";
-import {PROCESSOR} from "../../constants";
+import {PROCESSORS} from "../../constants";
 
 const Processor = ({component, addComponentToConfiguration, showConfiguration}) => {
 
     const onClick = () => {
-        addComponentToConfiguration(component, PROCESSOR);
+        addComponentToConfiguration(component, PROCESSORS);
         showConfiguration();
     };
 

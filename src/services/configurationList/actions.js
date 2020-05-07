@@ -1,6 +1,6 @@
 import {RECEIVE_CONFIGURATIONS, REQUEST_CONFIGURATIONS} from "./actionTypes";
-import {CONFIGURATOR_API} from "../util";
-import {CONFIGURATION} from "../../components/constants";
+import {CONFIGURATOR_API} from "../server";
+import {CONFIGURATIONS} from "../../components/constants";
 
 // export function requestComponents(componentType) {
 //     return {
@@ -17,7 +17,7 @@ export function receiveConfigurations(json) {
     }
 }
 
-const url = `${CONFIGURATOR_API}/${CONFIGURATION}`;
+const url = `${CONFIGURATOR_API}/${CONFIGURATIONS}`;
 
 export function fetchConfigurations() {
     return function (dispatch) {

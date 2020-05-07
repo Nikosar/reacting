@@ -23,7 +23,7 @@ const ComponentProperties = ({component}) => {
             )
     };
 
-    let price = component.prices && component.prices[0];
+    let price = component.lastMinPrice && component.lastMinPrice;
 
     return (
         <div>
@@ -34,7 +34,7 @@ const ComponentProperties = ({component}) => {
             }
             {
                 //price:
-                price && " price: " + price.minPrice
+                price && " price: " + price
             }
         </div>
     )

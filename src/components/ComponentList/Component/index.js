@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import React from "react";
 import ComponentProperties from "../ComponentProperties";
 
-const Component = ({component, onClick}) => {
+const Component = ({component, onClick, buttonName}) => {
 
-    const price = component.prices[0];
+    const price = component.lastMinPrice;
 
     return <div className="container">
         <div className="row component_block">
@@ -23,9 +23,9 @@ const Component = ({component, onClick}) => {
             </div>
 
             <div className="col-3 col-lg-4 col-md-3 col-sm-12">
-                <h5>{price && price.minPrice + " р."}</h5>
+                <h5>{price && price + " р."}</h5>
                 <button className="submit_button" type="button"
-                        onClick={() => onClick()}>Использовать для сборки
+                        onClick={() => onClick()}>{buttonName}
                 </button>
             </div>
         </div>

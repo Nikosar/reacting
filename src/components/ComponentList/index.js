@@ -3,16 +3,16 @@ import React from "react";
 import UniComponent from "./Component";
 import {fetchComponents} from "../../services/component/actions";
 import LiveSearch from "../LiveSearch";
-import {HDD, MOTHERBOARD, PROCESSOR, RAM, SSD, VIDEO_CARD} from "../constants";
+import {HDDS, MOTHERBOARDS, PROCESSORS, RAMS, SSDS, VIDEO_CARDS} from "../constants";
 import {addComponentToConfiguration} from "../../services/configuration/actions";
 import {showConfiguration} from "../../services/content/actions";
 
 const componentClasses = {
-    [PROCESSOR]: UniComponent, [VIDEO_CARD]: UniComponent, [RAM]: UniComponent,
-    [HDD]: UniComponent, [SSD]: UniComponent, [MOTHERBOARD]: UniComponent
+    [PROCESSORS]: UniComponent, [VIDEO_CARDS]: UniComponent, [RAMS]: UniComponent,
+    [HDDS]: UniComponent, [SSDS]: UniComponent, [MOTHERBOARDS]: UniComponent
 };
 
-const ComponentList = ({components, componentType, fetchComponents, addComponentToConfiguration}) => {
+export const ComponentList = ({components, componentType, fetchComponents, addComponentToConfiguration}) => {
     let Component = componentClasses[componentType];
 
     const componentsList = [];
@@ -21,7 +21,7 @@ const ComponentList = ({components, componentType, fetchComponents, addComponent
         components.forEach((component) => {
             componentsList.push(
                 <Component key={component.id} component={component}
-                           onClick={() => addComponentToConfiguration(component, componentType)}/>
+                           onClick={() => addComponentToConfiguration(component, componentType)} buttonName="Использовать для сборки"/>
             )
         });
     }

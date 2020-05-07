@@ -9,9 +9,12 @@ export default function (state = initialState, action) {
         // case REQUEST_COMPONENTS:
         //     return Object.assign({}, state, {components: action.components});
         case RECEIVE_COMPONENTS:
+
             return {
                 ...state,
-                components: action.components,
+                components: action.content._embedded[action.componentType],
+                page: action.content.page,
+                _links: action.content._links,
                 componentType: action.componentType,
                 // count: action.components.length
             };
